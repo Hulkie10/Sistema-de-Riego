@@ -1,6 +1,6 @@
-Flask==3.0.3
-scikit-fuzzy==0.4.2
-numpy==1.26.4
-scipy==1.14.1
-packaging==24.1
-networkx==3.4.2
+Flask
+scikit-fuzzy
+numpy
+scipy
+packaging
+networkx
