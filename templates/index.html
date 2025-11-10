@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Riego Difuso</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #d0ebff, #f8f9fa);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00509e;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 120px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: #0078D7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .resultado {
+            margin-top: 25px;
+            background: #e9f5ff;
+            border-radius: 10px;
+            padding: 15px 25px;
+            color: #004080;
+            font-size: 18px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0078D7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Riego con Lógica Difusa</h1>
+
+    <form action="/calcular" method="post">
+        <label for="humedad">Humedad del suelo (0–100):</label>
+        <input type="number" id="humedad" name="humedad" step="0.1" required>
+
+        <label for="temperatura">Temperatura (0–50°C):</label>
+        <input type="number" id="temperatura" name="temperatura" step="0.1" required>
+
+        <br><br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado %}
+    <div class="resultado">
+        <h2>Cantidad de agua sugerida:</h2>
+        <p><strong>{{ resultado }} L/m²</strong></p>
+        <a href="/">Volver</a>
+    </div>
+    {% endif %}
+</body>
+</html>
